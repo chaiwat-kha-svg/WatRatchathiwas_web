@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียด: ศาลาการเปรียญ | Wat Ratchathiwas Detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* --- Global Reset and Variables (Consistent with Main Page) --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary-color: #5D4037; /* Deep Brown/Monastic Earth Tone */
+            --secondary-color: #FFB300; /* Gold/Saffron Accent */
+            --text-color: #333;
+            --light-bg: #F9F9F9;
+            --white-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+
+        /* --- Header/Navigation (Simple for Subpage) --- */
+        header {
+            background: var(--white-bg);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .subpage-nav {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 50px;
+        }
+
+        .back-link {
+            font-size: 1.1em;
+            padding: 5px 0;
+            color: var(--primary-color);
+            font-weight: 400;
+        }
+        
+        .back-link i {
+            margin-right: 8px;
+        }
+        
+        .back-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- Hero Banner --- */
+        #hero-banner {
+            background: url('img/IMG_1330.jpg') no-repeat center center/cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        #hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-title {
+            z-index: 1;
+        }
+
+        .hero-title h1 {
+            font-size: clamp(2em, 5vw, 3.5em);
+            color: var(--secondary-color);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-title p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #fff;
+        }
+
+        /* --- Main Content Section --- */
+        .content-section {
+            padding: 40px 0;
+        }
+        
+        .content-section:nth-child(even) {
+            background-color: var(--white-bg);
+        }
+
+        /* --- Description Section --- */
+        .description-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        @media (min-width: 768px) {
+            .description-content {
+                grid-template-columns: 2fr 1fr; /* Text wider than image */
+            }
+        }
+
+        .detail-text {
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 20px;
+        }
+        
+        .detail-text h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .detail-text p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .detail-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Gallery Section --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item p {
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        /* --- Video Section --- */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: black;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- Footer (Simple for Subpage) --- */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+        
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container subpage-nav">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> กลับสู่หน้าหลักวัด (Back to Main Page)
+            </a>
+        </div>
+    </header>
+
+    <section id="hero-banner">
+        <div class="hero-title">
+            <h1>ศาลาการเปรียญ (Sala Karn Parian)</h1>
+            <p>ใช้ในการจัดกิจกรรมทางศาสนา การแสดงธรรม และเป็นที่รวมตัวของพุทธศาสนิกชน สร้างด้วยไม้สักทั้งหลัง</p>
+        </div>
+    </section>
+    
+    <section class="content-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">สถาปัตยกรรมและประวัติโดยละเอียด</h2>
+            <div class="description-content">
+                <div class="detail-text">
+                    <h3>ศาลาการเปรียญ</h3>
+                    <p>
+                         อยู่ทางด้านหน้าวัด เป็นอาคารสร้างด้วยไม้สักทั้งหลัง สมเด็จพระเจ้าบรมวงศ์เธอเจ้าฟ้ากรมพระยานริศรานุวัดติวงศ์ ทรงให้สร้างเลียนแบบศาลาการเปรียญวัดใหญ่สุวรรณาราม จังหวัดเพชรบุรี (ซึ่งเป็นท้องพระโรงเก่าสมัยพระเจ้าเสือ กษัตริย์แห่งกรุงศรีอยุธยา) 
+                         เสาเป็นไม้ขนาดใหญ่ หลังคามุงกระเบื้อง ประดับช่อฟ้า ใบระกา หางหงส์ มีมุขและมุขลดทั้งหน้าหลัง หน้าบันทั้ง ๒ ด้าน มีตราเครื่องหมายเป็นสำคัญ คือ ด้านหน้า (ด้านแม่น้ำเจ้าพระยา) มีตราจุลมงกุฎ หรือพระเกี้ยว อันเป็นพระราชลัญจกรในรัชกาลที่ ๕ 
+                         ด้านหลัง (ด้านตะวันออก) มีตราวชิราวุธ อันเป็นพระราชลัญจกรในรัชกาลที่ ๖ ศาลาการเปรียญหลังนี้เป็นสถาปัตยกรรมไม้ขนาดใหญ่และสวยงาม
+                    </p>
+                    <p>
+                         ภายในศาลาการเปรียญมีโต๊ะหมู่ที่ประดิษฐานพระพุทธรูปศิลปะล้านนาแบบสิงห์ที่พระบาทสมเด็จพระปกเกล้าเจ้าอยู่หัวพระราชทานมา นอกจากนั้น ยังมีธรรมาสน์ที่งดงามอีก ๒ องค์ ซึ่งเป็นงานฝีพระหัตถ์ของสมเด็จฯ เจ้าฟ้ากรมพระยานริศรานุวัดติวงศ์ 
+                         ซึ่งกล่าวกันว่าได้รับแบบอย่างจากธรรมาสน์ ๒ องค์จากวัดพระศรีรัตนมหาธาตุ จังหวัดพิษณุโลก ซึ่งธรรมาสน์ทั้งสององค์นี้เป็นหนึ่งในธรรมาสน์สมัยอยุธยาตอนปลาย ปัจจุบันเก็บรักษาเอาไว้ในห้องกระจกด้านหลังพระวิหารหลวง
+                    </p>
+                    <p>
+                         ออกแบบโดยพระยาจินดารังสรรค์ (พลับ) สถาปนิกผู้มีชื่อเสียงในสมัยรัชกาลที่ ๕ 
+                    </p>
+                </div>
+                <div class="detail-text">
+                    <img src="img/IMG20250901143253.jpg" alt="พระบาทสมเด็จพระจุลจอมเกล้าเจ้าอยู่หัว รัชกาลที่ 5" class="detail-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" style="background-color: var(--light-bg);">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">ประติมากรรมโดยรอบ (Surrounding sculpture)</h2>
+            <div class="gallery-grid">
+                
+                <div class="gallery-item">
+                    <img src="img/IMG_1326.jpg" alt="พระศิลาหยกมิ่งมงคล" class="detail-image">
+                    <p>พระศิลาหยกมิ่งมงคล</p>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="img/IMG_1309.jpg" alt="ศาลาหลวงพ่อนาค">
+                    <p>ศาลาหลวงพ่อนาค</p>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="img/IMG20250901143944.jpg" alt="พระมหาบุรุษทรงบําเพ็ญทุกรกิริยา">
+                    <p>พระมหาบุรุษทรงบําเพ็ญทุกรกิริยา</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Wat Ratchathiwas Vihara. | <a href="#main-page-url"></a>วัดราชาธิวาสวิหาร</p>
+        </div>
+    </footer>
+
+</body>
+</html>
